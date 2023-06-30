@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#The Script uses a while looo display text
+#On the 4th iteration display bad luck
+#On the 8th iteration display good luck
+
+counter=0
+while [ $counter -lt 10 ]
+do
+	if [ $counter -eq 3 ]
+	then
+		echo "bad luck"
+	elif [ $counter -eq 7 ]
+	then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	counter=$((counter + 1))
+done
