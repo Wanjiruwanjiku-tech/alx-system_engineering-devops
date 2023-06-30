@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#Uses While loop to display text
+#if count == 9, display Best School and then hi
+
+counter=0 #loop counter
+while [ $counter -lt 10 ]
+do
+	if [ $counter -ne 8 ]
+	then
+		echo "Best School"
+	else
+		echo "Best School"
+		echo "Hi"
+	fi
+	counter=$((counter + 1))
+done

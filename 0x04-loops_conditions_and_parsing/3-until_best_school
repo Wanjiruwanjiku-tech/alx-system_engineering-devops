@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#The script uses an until loop to display text
+counter=0
+until [ $counter -lt 10 ]
+do
+	echo "Best School"
+	counter=$((counter + 1))
+done
