@@ -3,12 +3,4 @@
 #beyond process.
 #Requirements: You cannot use kill or killall
 
-#Find the process
-pid=$(pgrep -f 4-to_infinity_and_beyond)
-
-#Check if the pricess is running
-if [[ -n "$pid" ]]
-then
-	#send the SIGTERM signal to terminate process
-	pkill -TERM -P "$pid"
-fi
+pkill -f 4-to_infinity_and_beyond
