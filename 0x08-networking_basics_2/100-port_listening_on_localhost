@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#A Bash script that listens on port 98 on localhost.
+
+nc -l -p 98
+
+#Uses the netcat tool to listen to port 98 '-p 98'
+#The '-l' option specifies that nc should operate on
+#listen mofe

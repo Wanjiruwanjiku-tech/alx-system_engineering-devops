@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#A Bash script that displays all active IPv4 IPs
+#on the machine it’s executed on.
+
+ifconfig | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | while read -r ip; do echo "$ip"
+done
+
+#Grep searches for match from the ifconfig output
+
+#The regular expression matches IPv4 adresses
+
+#The while construct reads each line of output from
+#previous command, assigns it to ip variable and
+#echoes the values of ip
