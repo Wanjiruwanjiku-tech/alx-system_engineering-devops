@@ -1,8 +1,6 @@
 # This Manifest Executes a command
 
 exec { 'killmenow_process':
-  command     => 'pkill killmenow',
-  onlyif      => 'pgrep killmenow',
-  path        => '/usr/bin:/bin'
-  refreshonly => true 
+  command => 'pkill -f killmenow',
+  path    => ['/usr/bin', 'usr/sbin']
 }
