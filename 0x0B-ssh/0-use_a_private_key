@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#This Script connects to a server using an rsa key
+
+ssh -i ~/.ssh/school ubuntu@35.153.226.233
