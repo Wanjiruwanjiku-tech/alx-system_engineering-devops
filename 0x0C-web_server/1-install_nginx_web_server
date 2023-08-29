@@ -2,7 +2,7 @@
 #The script installs an nginx web server that is
 #configured to listen on port 80
 
-apt-get uodate
+apt-get update
 apt-get -y install nginx
 service nginx start
 
