@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#The script configures nginx to display a custom 404 page with a specific message
+
+#Store the configuraton in a variable
+
+error_config = "/etc/nginx/sites-available/error_page_config"
+
+echo "
+server {
+    listen 80;
+    listen [::]:80;
+    server_name _;
+
+    error_page 404 /custom_404.html;
+    location = /custom_404.html {
+        root /var/www/html;
+        internal;
+    }
+}
+" > "$error_page_config"
+
+ln -s "$error_config" /etc/nginx/sites-enabled/
+service nginx reload
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# THE SCRIPT Configures Nginx to issue a 301 redirect for /redirect_me
+
+#Store the confuguration in a variable
+redirect_config="/etc/nginx/sites-available/redirect_config"
+
+# Write the configuration to a file and specify the redirection
+echo "
+server {
+    listen 80;
+    listen [::]:80;
+    server_name _;
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+}
+" > "$redirect_config"
+
+ln -s "$redirect_config" /etc/nginx/sites-enabled/
+service nginx reload
+
