@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#The script installs and configures HAProxy
+
+# Install HAProxy
+sudo apt-get update
+sudo apt-get install -y haproxy
+
+# Configure the server
+
+cat <<EOL | sudo tee /etc/haproxy/haproxy.cfg
+frontend web
+    bind *:80
+    mode http
+    default_backend webservers
+
+backend webservers
+    balance roundrobin
+    server web-01 35.153.226.233:80 check
+    server web-02 54.157.161.239:80 check
+EOL
+
+#Enable haproxy services to start
+sudo systemclyt enable haproxy
+sudo systemclyt start haproxy
