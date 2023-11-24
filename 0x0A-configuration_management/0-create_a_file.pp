@@ -1,5 +1,5 @@
 # Create a file using puppet in /tmp
-file {'/tmp/school/0-create_a_file.pp':
+file { '/tmp/school':
 ensure  => present,
 mode    => '0744',
 owner   => 'www-data',
