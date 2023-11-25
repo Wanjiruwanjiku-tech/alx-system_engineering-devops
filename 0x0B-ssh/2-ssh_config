@@ -2,6 +2,6 @@
 #Configuring ssh client
 echo "
 Host 52.90.14.176
-    IdentifyFile ~/.ssh/school
+    IdentityFile ~/.ssh/school
     PasswordAuthentication no
 " >> ~/.ssh/config
