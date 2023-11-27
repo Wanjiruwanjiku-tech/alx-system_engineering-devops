@@ -7,5 +7,5 @@ sudo apt update
 sudo apt-get -y install nginx
 sudo service nginx start
 # Create a custom  file with "Hello World!"
-sudo sh -c echo "Hello World!" > /var/www/html/index.nginx-debain.html
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 sudo service nginx restart
