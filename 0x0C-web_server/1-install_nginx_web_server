@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#The script installs nginx package and ensures its listening on port 80
 # Update the package list to ensure you have the latest information about available packages
 sudo apt update
 
@@ -7,5 +7,19 @@ sudo apt update
 sudo apt-get -y install nginx
 sudo service nginx start
 # Create a custom  file with "Hello World!"
-echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+echo 'Hello World\!' | sudo tee /var/www/html/index.nginx-debian.html
+
+# Configure Nginx to listen on port 80 and serve the custom HTML file
+sudo bash -c 'echo "server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	
+	root /var/www/html;
+	index index.html;
+	
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}" > /etc/nginx/sites-available/default'
+
 sudo service nginx restart
