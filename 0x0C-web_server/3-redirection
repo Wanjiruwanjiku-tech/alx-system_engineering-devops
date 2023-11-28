@@ -12,13 +12,17 @@ echo "Hello World!" | sudo tee /var/www/html/index.html
 echo "
 server {
     listen 80;
-    server_name;
+    server_name 52.90.14.176;
 
     location /redirect_me {
         return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
     }
 
     #Add additional server blocks
-}" | sudo tee /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
+}" | sudo tee /etc/nginx/sites-available/redirect_me
+#Remove default
+sudo rm /etc/nginx/sites-enabled/default
+#Create a symbolic link
+sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
 #Restart Nginx to apply changes
 sudo service nginx restart
