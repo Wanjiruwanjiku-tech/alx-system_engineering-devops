@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Get appache to run on the container and return a page containing 'Hello Holberton'
+sudo service appache2 start
