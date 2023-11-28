@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#The script configures nginx so that /redirect_me is redirecting to another page
+#The redirection must be 301 Moved Permanently.
+
+#Install nginx
+sudo apt update
+sudo apt-get install -y nginx
+sudo chown -R ubuntu /var/www
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+#Configure nginx for redirection
+echo "
+server {
+    listen 80;
+    server_name;
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    #Add additional server blocks
+}" | sudo tee /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
+#Restart Nginx to apply changes
+sudo service nginx restart
