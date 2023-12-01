@@ -21,5 +21,8 @@ Key principles and practices of DevOps include:
 - Continuous Delivery (CD): Continuous Delivery extends CI by automatically deploying code changes to production or staging environments after passing the necessary tests. This allows for more frequent and reliable releases.
 
 ----------------------------------------------------
-![Meme]()
+![Meme](https://github.com/Wanjiruwanjiku-tech/alx-system_engineering-devops/blob/master/procjectpics/meme.jpg?raw=true)
+
+
+
 DevOps practices aim to improve the speed of delivery, achieve higher quality software, and foster a more collaborative and innovative environment. Many organizations adopt DevOps to streamline their software development and deployment processes, enabling them to respond more quickly to customer needs and market changes.
