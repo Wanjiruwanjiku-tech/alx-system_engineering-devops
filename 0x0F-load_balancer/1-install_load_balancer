@@ -43,3 +43,4 @@ backend servers
     server 274543-web-01 52.90.14.176.2:80 check
     server 274543-web-02 100.27.5.123.20:80 check
 " >> /etc/haproxy/haproxy.config
+sudo service haproxy restart
