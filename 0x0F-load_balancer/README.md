@@ -1,11 +1,17 @@
 LOAD BALANCING
 ------------------------------------------------
 
+![balancing](https://github.com/Wanjiruwanjiku-tech/alx-system_engineering-devops/blob/master/procjectpics/bal.jpg?raw=true)
+-----------------------------------------------------------------------------------------------------------
+
 - A load balancer is a crucial component in distributed computing and web hosting environments.
 
 - Its primary function is to distribute incoming network traffic across multiple servers to ensure no single server is overwhelmed with too much load.
 
 - This not only enhances the reliability and availability of the system but also helps in optimizing resource utilization. Here are the key aspects of a load balancer:
+
+
+![load_balancer](https://github.com/Wanjiruwanjiku-tech/alx-system_engineering-devops/blob/master/procjectpics/load.png?raw=true)
 
 
 1. Load Distribution:
@@ -40,3 +46,6 @@ Load balancers regularly check the health of backend servers. If a server fails 
 
 
 - Overall, load balancers play a crucial role in ensuring the scalability, availability, and performance of web applications and services.
+-------------------------------------------------------------------------------------------------------
+
+![meme](https://github.com/Wanjiruwanjiku-tech/alx-system_engineering-devops/blob/master/procjectpics/load_meme.png?raw=true)
