@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# The script installs HAProxy and configures it
+#       It enables mnx via init script
+#       Distributes requests using the round robin algorithm
+#Install HAProxy
+sudo apt-get install -y haproxy
+#Enable mnx via init script
+echo "ENABLED=1" >> /etc/default/haproxy
+#Create a backup of the original config file
+mv /etc/haproxy/haproxy.cfg{,.original}
+#Create a new config file
+touch /etc/haproxy/haproxy.config
+
+printf %s "global
+    maxconn 2000
+    user haproxy
+    group haproxy
+
+defaults
+    log global
+    mode http
+    option httplog
+    option dontlognull
+    retries 3
+    timeout connect 5000
+    timeout client 30000
+    timeout server 30000
+    errorfile 400 /etc/haproxy/errors/400.http
+    errorfile 403 /etc/haproxy/errors/403.http
+    errorfile 408 /etc/haproxy/errors/408.http
+    errorfile 500 /etc/haproxy/errors/500.http
+    errorfile 502 /etc/haproxy/errors/502.http
+    errorfile 503 /etc/haproxy/errors/503.http
+    errorfile 504 /etc/haproxy/errors/504.http
+
+
+frontend http-in
+    bind 0:80
+    default_backend servers
+
+backend servers
+    balance roundrobin
+    server 274543-web-01 52.90.14.176.2:80 check
+    server 274543-web-02 100.27.5.123.20:80 check
+" >> /etc/haproxy/haproxy.config
