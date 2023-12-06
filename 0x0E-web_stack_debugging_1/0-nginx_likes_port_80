@@ -8,8 +8,12 @@ sudo apt-get install -y nginx
 # Backup the default nginx cofiguration file
 cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
 
+#Remove the default nginx configuration file
+sudo rm -r /etc/nginx/sites-enabled/default
+
 # Modify the default configuration file to listen on port 80
 sed -i 's/\blisten 80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Restart nginx to apply changes
 sudo service nginx restart
