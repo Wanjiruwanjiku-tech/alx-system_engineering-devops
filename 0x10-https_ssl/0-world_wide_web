@@ -6,7 +6,8 @@
 # Function to retrive and display information about a subdomain
 domain_information () {
     #Perform DNS lookup for the subdomain
-    line=$(dig "$2"."$1" | grep -Al 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+    #line=$(dig "$2"."$1" | grep -Al 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+    line=$(dig "$2"."$1" | awk '/ANSWER SECTION:/ {p=1; next} p; /^$/ {exit}' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
     #Extract relevant information and print it
     echo "$2 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
 }
