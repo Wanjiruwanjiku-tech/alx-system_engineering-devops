@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# the bash script accepts 2 arg
+#   - domain (type=string, what=domain name to audit, mandatory=yes)
+#   - subdomain (type=string, what=subdomain to audit, mandatory=no)
+
+# Function to retrive and display information about a subdomain
+domain_information () {
+    #Perform DNS lookup for the subdomain
+    line=$(dig "$2"."$1" | grep -Al 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+    #Extract relevant information and print it
+    echo "$2 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
+}
+# Check the number of args passed to the script
+if [ "$#" == 1 ]
+then
+    domain_information "$1" "www"
+    domain_information "$1" "lb-01"
+    domain_information "$1" "web-01"
+    domain_information "$1" "web-02"
+elif [ "$#" == 2 ]
+then
+    domain_information "$1" "$2"
+fi
