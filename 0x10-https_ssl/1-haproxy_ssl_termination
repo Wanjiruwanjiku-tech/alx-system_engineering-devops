@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Creates a certificate using certbot and configure HAProxy to accept enccrypted traffic from www
+#	- haproxy must be listening on port 443
+#	- haproxy must be accepting SSL traffic
