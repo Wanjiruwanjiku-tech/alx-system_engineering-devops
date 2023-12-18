@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Configure a ufw firewall
+
+# Install the firewall
+sudo apt-get update
+sudo apt-get install ufw
+
+# Set default incomming policy to deny
+sudo ufw default deny incoming
+
+# Set default outgoing policy to allow
+sudo ufw default allow outgoing
+
+# Allow incoming traffic for specific ports
+sudo ufw allow 22/tcp #SSH
+sudo ufw allow 80/tcp #HTTP
+sudo ufw allow 443/tcp #HTTPS
+
+# Enable ufw to apply the new set rules
+sudo ufw enable
+
+# Verify the rules
+sudo ufw status
