@@ -11,29 +11,7 @@ import sys
 if __name__ == "__main__":
     # Define the base url for the Api
     url = "https://jsonplaceholder.typicode.com/"
-    def export_to_csv(user_id, user_name, tasks):
-        """Export completed tasks to a CSV File.
-        
-        Keyword arguments:
-        user_id -- the id of the employee
-        user_name -- the user's name
-        tasks -- other tasks (total)
-        """
-        
-        csv_filename = "{}.csv".format(user_id)
-        with open(csv_filename, mode='w', newline='') as csv_file:
-            fieldnames = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS', 'TASK_TITLE']
-            writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-            writer.writeheader()
-            
-            for task in tasks:
-                writer.writerow({
-                    'USER_ID': user_id,
-                    'USERNAME': user_name,
-                    'TASK_COMPLETED_STATUS': task.get('completed'),
-                    'TASK_TITLE': task.get('title')
-                })
-        print("Tasks exported to {}".format(csv_filename))
+    
 
 
 
@@ -66,3 +44,29 @@ if __name__ == "__main__":
 
     for completed_task in completed_tasks:
         print("\t {}".format(completed_task))
+
+
+    # CSV Format
+    def export_to_csv(user_id, user_name, tasks):
+        """Export completed tasks to a CSV File.
+        
+        Keyword arguments:
+        user_id -- the id of the employee
+        user_name -- the user's name
+        tasks -- other tasks (total)
+        """
+        
+        csv_filename = "{}.csv".format(user_id)
+        with open(csv_filename, mode='w', newline='') as csv_file:
+            fieldnames = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS', 'TASK_TITLE']
+            writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+            writer.writeheader()
+            
+            for task in tasks:
+                writer.writerow({
+                    'USER_ID': user_id,
+                    'USERNAME': user_name,
+                    'TASK_COMPLETED_STATUS': task.get('completed'),
+                    'TASK_TITLE': task.get('title')
+                })
+        print("Tasks exported to {}".format(csv_filename))
