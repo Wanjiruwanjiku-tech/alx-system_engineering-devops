@@ -33,7 +33,7 @@ if __name__ == "__main__":
                     'TASK_COMPLETED_STATUS': task.get('completed'),
                     'TASK_TITLE': task.get('title')
                 })
-    print("Tasks exported to {}".format(csv_filename))
+        print("Tasks exported to {}".format(csv_filename))
 
 
 
