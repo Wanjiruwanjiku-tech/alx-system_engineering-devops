@@ -6,9 +6,9 @@ API Advanced
 Contents
 -------------------------------------------------
 
-[Introduction](#introduction)
-[Author](#author)
-[Tasks](#tasks)
+[Introduction](#introduction)  
+[Author](#author)  
+[Tasks](#tasks)  
 
 ------------------------------------------------------------
 
