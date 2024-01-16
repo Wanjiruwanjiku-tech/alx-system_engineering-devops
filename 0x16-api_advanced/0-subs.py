@@ -19,7 +19,7 @@ def number_of_subscribers(subreddit):
         subreddit), headers=headers, allow_redirects=False)
     
     # Check the response status
-    if response >= 300:
+    if response.status_code >= 300:
         return 0
     
     # Parse the Jason Response
